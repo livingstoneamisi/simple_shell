@@ -16,7 +16,7 @@ void reader(char *cmd, size_t s)
 		}
 		else
 		{
-			printer("Error: input read");
+			perror("Error: reading input");
 			exit(FAIL);
 		}
 	}
