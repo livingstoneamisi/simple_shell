@@ -1,5 +1,7 @@
 #include "shell.h"
 
+extern char **environ;
+
 /**
  * token - tokenizer
  * @cmd: pointer to command string
