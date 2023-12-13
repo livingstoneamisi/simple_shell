@@ -2,6 +2,7 @@
 
 /**
  * writer - display on screen
+ * @message: pointer to desired text
  */
 
 void writer(const char *message)

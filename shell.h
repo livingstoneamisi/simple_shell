@@ -16,5 +16,4 @@ void reader(char *cmd, size_t s);
 void printer(const char *message);
 
 
-
 #endif

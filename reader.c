@@ -2,7 +2,7 @@
 /**
  * reader - read user input
  * @cmd:pointer to user command
- * @s:length of commanf
+ * @s:length of command
  */
 
 void reader(char *cmd, size_t s)
@@ -21,4 +21,14 @@ void reader(char *cmd, size_t s)
 		}
 	}
 	cmd[strcspn(cmd, "\n")] = '\0';
+}
+
+/**
+ * printer - custom printf
+ * @message: pointer to desired message
+ */
+
+void printer(const char *message)
+{
+	write(STDOUT_FILENO, message, strlen(message));
 }
