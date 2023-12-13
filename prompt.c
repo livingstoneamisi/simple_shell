@@ -7,5 +7,5 @@
 
 void prompt(void)
 {
-	printer("&!");
+	printer("&! ");
 }

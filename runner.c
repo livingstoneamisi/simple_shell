@@ -1,6 +1,5 @@
 #include "shell.h"
 
-extern char **environ;
 
 /**
  * token - tokenizer
@@ -55,9 +54,8 @@ void exec(char *args[])
 			free(tmp);
 			dir = strtok(NULL, ":");
 		}
-
 		path = path ? path : args[0];
-		execve(path, args, environ);
+		execve(path, args, NULL);
 		perror("execve");
 		exit(FAIL);
 	}
