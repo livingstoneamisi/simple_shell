@@ -12,17 +12,13 @@ void run(const char *cmd)
 	if (c == -1)
 	{
 		perror("Fork error!");
-		exit(1);
+		exit(FAIL);
 	}
 	else if (c == 0)
 	{
-		char *arg[] = {cmd, NULL};
-
-		if (execvp(cmd, arg) == -1)
-		{
-			perror("Error executing command");
-			_exit(1);
-		}
+		execlp(cmd, cmd, (char *)NULL);
+		perror("execlp");
+		exit(FAIL);
 	}
 	else
 	{

@@ -7,6 +7,10 @@
 #include <string.h>
 #include <stdbool.h>
 #include <sys/types.h>
+#include <sys/wait.h>
+
+#define SUCCESS 0
+#define FAIL 1
 
 
 void writer(const char *message);
