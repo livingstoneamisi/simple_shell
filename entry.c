@@ -11,6 +11,10 @@ int main(void)
 	{
 		prompt();
 		reader(cmd, sizeof(cmd));
+
+		if (strlen(cmd) == 0)
+			continue;
+
 		run(cmd);
 	}
 	return (0);

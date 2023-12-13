@@ -8,8 +8,15 @@
  */
 void token(const char *cmd, char *args[])
 {
-	args[0] = strdup(cmd);
-	args[1] = NULL;
+	int a = 0;
+	char *token = strtok((char *)cmd, " ");
+
+	while (token != NULL && a < MAXARG - 1)
+	{
+		args[a++] = token;
+		token = strtok(NULL, " ");
+	}
+	args[a] = NULL;
 }
 
 /**
@@ -67,6 +74,11 @@ void exec(char *args[])
 void run(const char *cmd)
 {
 	char *args[MAXARG];
+
+	if (cmd[0] == '\0' || cmd[0] == '\n')
+	{
+		return;
+	}
 
 	token(cmd, args);
 	exec(args);

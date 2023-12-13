@@ -9,18 +9,12 @@ void reader(char *cmd, size_t s)
 {
 	if (fgets(cmd, s, stdin) == NULL)
 	{
-		if (feof(stdin))
-		{
-			printer("\n");
-			exit(SUCCESS);
-		}
-		else
-		{
-			perror("Error: reading input");
-			exit(FAIL);
-		}
+		perror("fgets");
+		exit(FAIL);
 	}
-	cmd[strcspn(cmd, "\n")] = '\0';
+
+	if (cmd[strlen(cmd) - 1] == '\n')
+		cmd[strlen(cmd) - 1] = '\0';
 }
 
 /**
@@ -30,5 +24,5 @@ void reader(char *cmd, size_t s)
 
 void printer(const char *message)
 {
-	write(STDOUT_FILENO, message, strlen(message));
+	writer(message);
 }
